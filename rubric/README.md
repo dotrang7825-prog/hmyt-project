@@ -60,3 +60,7 @@ python scripts/review_project.py --all --output-dir /tmp/review   # chạy thử
 ```
 
 CI `review-tool-selftest.yml` chạy lại 3 lệnh này trên mọi PR sửa `rubric/` hoặc `scripts/`.
+
+## Đồng bộ với HMYT/hmyt-book
+
+Danh sách đề tài (`topic_id`, `page`) và trọng số mốc của rubric `standard` có nguồn ở repo HMYT (`docs/data/projects/*.json`, `docs/data/rubric.json`), được hmyt-book xuất công khai tại `https://fossbk-spec.github.io/hmyt-book/data/projects.json` và `.../data/rubric.json`. Không chép tay rồi để đó: `python scripts/check_upstream.py` đối chiếu (chạy trong CI `review-tool-selftest.yml`, kể cả hằng tuần). Sửa ở HMYT trước, rồi cập nhật `rubric/` cho tới khi script PASSED.
